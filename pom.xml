@@ -62,26 +62,64 @@
 			<artifactId>rewrite-integration-faces</artifactId>
 			<version>3.4.1.Final</version>
 		</dependency>
+
 		<dependency>
 			<groupId>org.primefaces</groupId>
 			<artifactId>primefaces</artifactId>
 			<version>6.1</version>
 		</dependency>
+
+		 <dependency>
+            <groupId>org.projectlombok</groupId>
+
+            <artifactId>lombok</artifactId>
+            <version>1.18.22</version>
+            <scope>provided</scope>
+    </dependency>
+		
+		
+		
 		<dependency>
-			<groupId>org.projectlombok</groupId>
-			<artifactId>lombok</artifactId>
-			<version>1.16.16</version>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>4.12</version><!--$NO-MVN-MAN-VER$-->
+			<scope>test</scope>
 		</dependency>
+		
 
 	</dependencies>
 
-	<build>
+		
+<build>
 		<plugins>
+		
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
 			</plugin>
+			
+			<!-- Jacoco plugin -->
+			<plugin>
+				<groupId>org.jacoco</groupId>
+         		<artifactId>jacoco-maven-plugin</artifactId>
+         		<version>0.8.3</version>
+         		<executions>
+            		<execution>
+               			<id>jacoco-initialize</id>
+               			<goals>
+                  			<goal>prepare-agent</goal>
+               			</goals>
+               			<phase>test-compile</phase>
+            		</execution>
+            		<execution>
+               			<id>jacoco-site</id>
+              			 <phase>verify</phase>
+               			<goals>
+                  			<goal>report</goal>
+               			</goals>
+            		</execution>
+         		</executions>
+      		</plugin>
 		</plugins>
 	</build>
-
 </project>
